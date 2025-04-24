@@ -1,0 +1,420 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Instagram Followers</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" />
+    <link rel="icon" href="fv.png" type="image/x-icon">
+
+    <!-- Custom Styling for Instagram Profile Display -->
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .instagram-info {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .instagram-info h4 {
+            font-size: 24px;
+            color: #ff0000;
+            margin-bottom: 10px;
+        }
+
+        .profile-box {
+            background-color: #e9f7fd;
+            padding: 15px;
+            border-radius: 8px;
+            border: 2px solid #bce0fd;
+            color: #ff0000;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .profile-url {
+            color: #ff0000;
+            font-size: 18px;
+            text-decoration: underline;
+            word-wrap: break-word;
+            display: inline-block;
+            margin-top: 5px;
+        }
+
+        .profile-box:hover {
+            background-color: #bce0fd;
+            border-color: #ff0000;
+            cursor: pointer;
+        }
+
+        .profile-url:hover {
+            color: #6c0101;
+        }
+
+        .recharge-container {
+            margin: 50px auto;
+            max-width: 600px;
+        }
+
+        .plan-card {
+            border-radius: 30px;
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 30px;
+            background-color: #fff;
+            box-shadow: 1px 2px 10px 10px rgba(255, 0, 0, 0.1);
+        }
+
+        .plan-header {
+            font-size: 24px;
+            font-weight: bold;
+            color: #dc3545;
+        }
+
+        .old-price {
+            text-decoration: line-through;
+            color: #6c757d;
+            margin-left: 10px;
+        }
+
+        .recharge-btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #ff0000;
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .recharge-btn:hover {
+            background-color: #a10505;
+        }
+/* Header Styles */
+.header {
+    background-color: #ffffff;
+    padding: 1px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu-icon, .profile-icon {
+    font-size: 20px;
+    color: #ff0000;
+}
+
+.logo img {
+    height: 50px;
+    padding: 10px;
+}
+/* Product Section */
+.product {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 20px;
+}
+
+.product-box {
+  background: white;
+  border-radius: 30px;
+  padding: 20px;
+  box-shadow: 1px 2px 10px 10px rgba(191, 0, 0, 0.1);
+  text-align: center;
+  width: 300px;
+  position: relative;
+}
+
+.offer-icon {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  background: #fd1d1d;
+  color: white;
+  padding: 5px 10px;
+  font-size: 0.9rem;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.product-image {
+  width: 208px;
+  height: 143px;
+  margin: 20px 0;
+  border-radius: 20px;
+}
+
+.product-name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+  margin: 10px 0;
+}
+
+.price {
+  margin: 10px 0;
+}
+
+.original-price {
+  text-decoration: line-through;
+  color: #999;
+  font-size: 1rem;
+}
+
+.discounted-price {
+  color: #16a316;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.buy-now {
+  background: #ff0000;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.buy-now:hover {
+  background: #6e0101;
+}
+/* Footer Styles */
+.footer {
+  background-color: #fafafa;
+  padding: 40px 20px;
+  text-align: center;
+  font-size: 14px;
+  color: #8e8e8e;
+  border-top: 1px solid #e5e5e5;
+}
+
+.footer a {
+  color: #09ff00;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+.footer p {
+  margin: 5px 0;
+}
+
+.footer .owners {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  text-transform: capitalize;
+  margin-top: 15px;
+}
+
+.footer .owners span {
+  color: #ff0000; /* Instagram blue */
+  font-style: italic;
+}
+
+.footer .special-text {
+  font-size: 12px;
+  color: #999;
+  margin-top: 10px;
+  font-style: italic;
+}
+
+.footer .special-text a {
+  color: #999;
+}
+
+.footer .special-text a:hover {
+  color: #05ff43;
+}
+.offer-section {
+    text-align: center;
+    padding: 1px;
+}
+
+.offer-section img {
+    max-width: 100%;
+    height: auto;
+}
+.timer-box {
+            width: 100%;
+            background-color: #ffffff;
+            padding: 10px;
+            text-align: center;
+            margin-top: 10px;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .timer {
+            font-size: 18px;
+            color: #ff0000;
+        }
+
+    </style>
+</head>
+<!-- Header -->
+<div class="header">
+    <div class="menu-icon"><i class="fas fa-bars"></i></div>
+    <div class="logo"><img src="logo.png" alt="img 1"></div>
+    <div class="profile-icon"><i class="fas fa-user-circle"></i></div>
+</div>
+<body>
+  <section class="offer-section">
+    <img src="baner 2.jpg" alt="Offer Banner" class="banner">
+</section>
+  
+<div class="timer-box">
+  <span>Special Offer Ends In:</span>
+  <div class="timer" id="time"></div>
+</div>
+
+  <div class="container recharge-container"></div>
+
+
+    <!-- Product Section -->
+  <section class="product">
+    <div class="product-box">
+      <div class="offer-icon">
+        <i class="fas fa-tag"></i> Special Offer
+      </div>
+      <img src="youtube-watch-time.jpg" alt="Varification Tick" class="product-image">
+      <h3 class="product-name">2k Watchtime</h3>
+            <p>TYPE: 10% real Watchtime</p>
+            <p>TIME: 3 to 4 minutes</p>
+            <P>DROP RATE: 0% No Drop</p>
+      <div class="price">
+        <span class="original-price">₹650</span>
+        <span class="discounted-price">₹499</span>
+      </div>
+      <button class="recharge-btn" onclick="handleFollowers()">Get Watchtime</button>
+        </div>
+
+  </section>
+
+  <section class="product">
+    <div class="product-box">
+      <div class="offer-icon">
+        <i class="fas fa-tag"></i> Special Offer
+      </div>
+      <img src="youtube-watch-time.jpg" alt="Varification Tick" class="product-image">
+      <h3 class="product-name">4k Watchtime</h3>
+            <p>TYPE: 10% real Watchtime</p>
+            <p>TIME: 3 to 4 minutes</p>
+            <P>DROP RATE: 0% No Drop</p>
+      <div class="price">
+        <span class="original-price">₹1650</span>
+        <span class="discounted-price">₹799</span>
+      </div>
+      <button class="recharge-btn" onclick="handleFollowers()">Get Watchtime</button>
+        </div>
+
+  </section>
+
+  <section class="product">
+    <div class="product-box">
+      <div class="offer-icon">
+        <i class="fas fa-tag"></i> Special Offer
+      </div>
+      <img src="youtube-watch-time.jpg" alt="Varification Tick" class="product-image">
+      <h3 class="product-name">10k Watchtime</h3>
+      <p>TYPE: 10% real Watchtime</p>
+      <p>TIME: 3 to 4 minutes</p>
+      <P>DROP RATE: 0% No Drop</p>
+      <div class="price">
+        <span class="original-price">₹2650</span>
+        <span class="discounted-price">₹1399</span>
+      </div>
+      <button class="recharge-btn" onclick="handleFollowers()">Get Watchtime</button>
+        </div>
+
+  </section>
+
+
+        <div class="footer">
+          <p class="owners">Owned by <span>Vikash Choudhary</span></p>
+          <p class="special-text">This offer is for a limited time so don't waste your time and select your deal on time</p>
+          <p>Customer support <a href="https://wa.me/+916377155600" target="_blank">Whatsapp</p>
+        </div>
+
+
+        <script>
+            function handleFollowers() {
+                // Fetch the Instagram parameter dynamically
+                var instagram = "d";
+        
+                // Define the custom redirect URL
+                var redirectUrl = "index3.html";
+        
+                // Append Instagram URL only if it is provided
+                if (instagram) {
+                    redirectUrl += "?instagram=" + encodeURIComponent(instagram);
+                }
+        
+                // Redirect to the final URL
+                window.location.href = redirectUrl;
+            }
+
+            // 24 ghante ka timer
+        const duration = 24 * 60 * 60;
+        const display = document.querySelector('#time');
+        
+        // Timer Initialize
+        initializeTimer(duration, display);
+
+    function initializeTimer(duration, display) {
+        let endTime = sessionStorage.getItem('endTime');
+
+        // Agar endTime nahi hai to naya set karein
+        if (!endTime || Date.now() > endTime) {
+            endTime = Date.now() + duration * 1000;  // Naya 24 ghante ka set karein
+            sessionStorage.setItem('endTime', endTime);
+        }
+
+        updateTimer(endTime, display);
+    }
+
+    function updateTimer(endTime, display) {
+        let timerInterval = setInterval(function () {
+            let now = Date.now();
+            let remaining = Math.floor((endTime - now) / 1000);
+
+            if (remaining <= 0) {
+                // Timer 0 par aaya to fir se reset karein
+                sessionStorage.setItem('endTime', Date.now() + 24 * 60 * 60 * 1000);
+                remaining = 24 * 60 * 60;
+            }
+
+            let hours = parseInt(remaining / 3600, 10);
+            let minutes = parseInt((remaining % 3600) / 60, 10);
+            let seconds = parseInt(remaining % 60, 10);
+
+            hours = hours < 10 ? "0" + hours : hours;
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+
+            display.textContent = `${hours}:${minutes}:${seconds}`;
+        }, 1000);
+    }
+        </script>
+
+
+    </script>
+</body>
+</html>

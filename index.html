@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>youtub subcraibs</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="fv.png" type="image/x-icon">
+    
+    <style>
+        /* Reset and Basic Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100%;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        header {
+            background-color: #fff;
+            padding: 14px;
+            text-align: center;
+        }
+
+        .logo img {
+            height: 50px;
+        }
+
+        .banner {
+            width: 100%;
+            display: block;
+            height: auto;
+        }
+
+        .timer-box {
+            width: 100%;
+            background-color: #e0f7fa;
+            padding: 10px;
+            text-align: center;
+            margin-top: 10px;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .timer {
+            font-size: 18px;
+            color: #ff0000;
+        }
+
+        .recharge-form {
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 30px;
+            box-shadow: 1px 2px 10px 10px rgba(248, 12, 0, 0.103);
+            max-width: 600px;
+        }
+
+        .recharge-form h3 {
+            font-size: 22px;
+            color: #ff0000;
+            margin-bottom: 15px;
+        }
+
+        .provider {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0;
+        }
+
+        .provider-option {
+            flex: 1;
+            margin: 0 5px;
+            padding: 15px;
+            text-align: center;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .provider-option.selected {
+            background-color: #ff0000;
+            color: white;
+        }
+
+        .recharge-form input[type="text"], 
+        .recharge-form input[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .recharge-form input[type="submit"] {
+            background-color: #ff0000;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .photo-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px auto;
+            max-width: 1200px;
+        }
+
+        .photo {
+            width: calc(50% - 10px);
+            max-width: 400px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(255, 0, 0, 0.164);
+        }
+
+        .reviews-section {
+            text-align: center;
+            padding: 30px;
+            background-color: #fff;
+        }
+
+        .review {
+            margin: 15px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            max-width: 600px;
+            box-shadow: 5px 5px 10px rgba(255, 0, 0, 0.183);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        footer img {
+            width: 100%;
+        }
+
+        /* Mobile Responsive */
+        @media screen and (max-width: 768px) {
+            .photo {
+                width: 100%;
+            }
+            
+            .recharge-form {
+                width: 90%;
+            }
+        }
+        .header {
+            background-color: #ffffff;
+            padding: 1px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .menu-icon, .profile-icon {
+            font-size: 20px;
+            color: #ff0000;
+        }
+        
+        .logo img {
+            height: 40px;
+            padding: 3px;
+        }
+
+        /* Offer section */
+.offer-section {
+    text-align: center;
+    padding: 1px;
+}
+
+.offer-section img {
+    max-width: 100%;
+    height: auto;
+}
+.comment-box {
+      display: flex;
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+      padding: 10px;
+      margin-bottom: 15px;
+    }
+    .comment-box img {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      margin-right: 12px;
+    }
+    .comment-content {
+      flex: 1;
+    }
+    .username {
+      font-weight: 500;
+      color: #065fd4;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .comment-text {
+      margin: 4px 0 6px;
+      font-size: 15px;
+      color: #0f0f0f;
+    }
+    .comment-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 14px;
+      color: #606060;
+    }
+    .comment-actions i {
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .comment-actions i:hover {
+      color: #0f0f0f;
+    }
+    .liked {
+      color: #0f0f0f;
+    }
+    .three-dots {
+      position: relative;
+    }
+    .menu {
+      display: none;
+      position: absolute;
+      top: 22px;
+      background: #fff;
+      border: 1px solid #ccc;
+      font-size: 14px;
+      padding: 6px 10px;
+      border-radius: 5px;
+      z-index: 10;
+    }
+    .three-dots:hover .menu {
+      display: block;
+    }
+    .add-comment-box {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 25px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      padding: 10px 15px;
+      border-radius: 30px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+    .add-comment-box input {
+      flex: 1;
+      padding: 8px;
+      border: none;
+      outline: none;
+      font-size: 15px;
+    }
+    .add-comment-box i {
+      cursor: pointer;
+      font-size: 20px;
+      color: #606060;
+    }
+    .emoji-box {
+      margin-top: 8px;
+      font-size: 22px;
+      display: flex;
+      gap: 10px;
+      cursor: pointer;
+    }
+
+/* Input Field Styles */
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #dbdbdb;
+  border-radius: 4px;
+  font-size: 16px;
+}
+#overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        .unique-credit-footer {
+            text-align: center;
+            font-size: 10px;
+            color: #888;
+            opacity: 0.6;
+            transition: opacity 0.3s ease-in-out;
+            font-family: Arial, sans-serif;
+            margin-top: -34px; /* Thoda upar adjust karne ke liye */
+        }
+        /* Preloader styling */
+#preloader {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+#preloader img {
+  width: 30vw;       /* 30% of viewport width */
+  max-width: 150px;  /* max limit for larger screens */
+  min-width: 80px;   /* min limit for very small screens */
+  height: auto;
+}
+    </style>
+    
+    <script>
+        window.onload = function () {
+    setTimeout(function () {
+        document.getElementById("preloader").style.display = "none";
+        document.body.style.overflow = "auto"; // Enable scrolling after load
+    }, 1500); // 1.5 sec me hide ho jayega
+};
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.querySelector('.recharge-form form');
+
+            form.onsubmit = function(event) {
+                event.preventDefault();
+                
+                const instagramURL = document.querySelector('#instagram').value;
+
+                if (instagramURL) {
+                    // Identify which button was clicked
+                    const submitButton = event.submitter;
+
+                    if (submitButton.value === "Subscraib & Monatizetion") {
+                        window.location.href = `sub.html?url=${encodeURIComponent(instagramURL)}`;
+                    } 
+                    else if (submitButton.value === "Watchtime increase") {
+                        window.location.href = `watch.html?url=${encodeURIComponent(instagramURL)}`;
+                    } 
+                }
+            };
+
+            const eightMinutes = 60 * 60 * 24;
+            const display = document.querySelector('#time');
+            startTimer(eightMinutes, display);
+        });
+
+        function startTimer(duration, display) {
+        let timer = duration, hours, minutes, seconds;
+        const interval = setInterval(() => {
+            hours = parseInt(timer / 3600, 10);
+            minutes = parseInt((timer % 3600) / 60, 10);
+            seconds = parseInt(timer % 60, 10);
+
+            display.textContent = `${hours}:${minutes < 10 ? '0' : ''}${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+
+            if (--timer < 0) {
+                clearInterval(interval);
+                display.textContent = "Time's up!";
+            }
+        }, 1000);
+    }
+    </script>
+</head>
+
+<body>
+
+    <div id="preloader">
+        <img src="logo.png" alt="Loading...">
+    </div>
+
+    <!-- Header -->
+    <div class="header">
+        <div class="menu-icon"><i class="fas fa-bars"></i></div>
+        <div class="logo"><img src="logo.png" alt="img 1"></div>
+        <div class="profile-icon"><i class="fas fa-user-circle"></i></div>
+    </div>
+
+    <section class="offer-section">
+        <img src="baner me.jpg" alt="Offer Banner" class="banner">
+    </section>
+
+    <div class="timer-box">
+        <span>Special Offer Ends In:</span>
+        <div class="timer" id="time"></div>
+    </div>
+
+    <section class="recharge-form">
+        <h3>Monatizetion & Subscraib</h3>
+        <form>
+            <label for="instagram">Youtube channel URL:</label>
+            <input type="text" id="instagram" placeholder="https://www.youtube.com/yourprofile" required>
+
+            <label for="mobile">Mobile Number:</label>
+            <input type="text" id="mobile" placeholder="+91 XXXXXXXXXX" required>
+
+            <input type="submit" value="Subscraib & Monatizetion">
+            <input type="submit" value="Watchtime increase">
+
+        </form>
+    </section>
+    <div class="photo-section">
+        <img src="Photo 6.jpg" alt="Photo 6" class="photo">
+        <h1>comments</h1>
+    </div>
+
+    <!-- Reviews Section (Visible only on Home Page) -->
+    <div id="comments-section"></div>
+
+    <div class="add-comment-box">
+      <input type="text" id="commentInput" placeholder="Add a comment..." />
+      <i class="fas fa-paper-plane" id="sendBtn"></i>
+    </div>
+    <div class="emoji-box">
+      <span class="emoji">🔥</span>
+      <span class="emoji">❤️</span>
+      <span class="emoji">😂</span>
+      <span class="emoji">👍</span>
+      <span class="emoji">✨</span>
+      <span class="emoji">💕</span>
+      <span class="emoji">🤣</span>
+      <span class="emoji">😱</span>
+      <span class="emoji">😉</span>
+      <span class="emoji">😎</span>
+    </div>
+  
+    <script>
+        const commentInput = document.getElementById('commentInput');
+        const commentsSection = document.getElementById('comments-section');
+      
+        const profileLinks = {
+          "gopikasuresh8694": "https://www.youtube.com/@gopikasuresh8694",
+          "ManojDey": "https://www.youtube.com/@ManojDey",
+          "GyanTherapy": "https://www.youtube.com/@GyanTherapy",
+          "TechnicalYogi": "https://www.youtube.com/@TechnicalYogi",
+          "vmusictune": "https://www.youtube.com/@vmusictune",
+          "kettavan666": "https://www.youtube.com/@kettavan666",
+          "CoolMitra": "https://www.youtube.com/@CoolMitra",
+          "Algrow": "https://www.youtube.com/@Algrow"
+        };
+      
+        const profileImages = {
+          "gopikasuresh8694": "@gopikasuresh8694.jpg",
+          "ManojDey": "@ManojDey.jpg",
+          "GyanTherapy": "@GyanTherapy.jpg",
+          "TechnicalYogi": "@TechnicalYogi.jpg",
+          "vmusictune": "@vmusictune.jpg",
+          "kettavan666": "@kettavan666.jpg",
+          "CoolMitra": "@CoolMitra.jpg",
+          "Algrow": "@Algrow.jpg"
+        };
+      
+        const commentsData = [
+          { username: "gopikasuresh8694", text: "Sabse badiya service dete hai ☺ 70k just 2 minutes wow" },
+          { username: "ManojDey", text: "Bande ki service sabse acchi hai maine khud se Kiya hai" },
+          { username: "GyanTherapy", text: "Bhaiya aise hi Kam karte rahana bahut achcha kam kar rahe ho 💖" },
+          { username: "TechnicalYogi", text: "Aap sabhi ko suggest karta hun Banda trusted hai" },
+          { username: "vmusictune", text: "Kaafi fast delivery mili mujhe." },
+          { username: "kettavan666", text: "मुझे भी आप लोगों की तरह शक हो रहा था लेकिन काफी अच्छा बंदा है" },
+          { username: "CoolMitra", text: "सबसे अच्छी सर्विस मिल रही है इनकी" },
+          { username: "Algrow", text: "You can trust him completely, he is a great guy" }
+        ];
+
+      
+        function renderComments() {
+          commentsSection.innerHTML = '';
+          commentsData.forEach(data => {
+            const commentDiv = document.createElement('div');
+            commentDiv.className = 'comment-box';
+            commentDiv.innerHTML = `
+              <img src="${profileImages[data.username]}" alt="${data.username}">
+              <div class="comment-content">
+                <a href="${profileLinks[data.username]}" class="username" target="_blank">@${data.username}</a>
+                <p class="comment-text">${data.text}</p>
+                <div class="comment-actions">
+                  <i class="fas fa-thumbs-up like-btn"></i>
+                  <i class="fas fa-reply reply-btn" data-user="${data.username}"></i>
+                  <div class="three-dots">
+                    <i class="fas fa-ellipsis-v"></i>
+                    <div class="menu">
+                      <a href="${profileLinks[data.username]}" target="_blank">Visit profile</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            `;
+            commentsSection.appendChild(commentDiv);
+          });
+      
+          document.querySelectorAll('.like-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+              btn.classList.toggle('liked');
+            });
+          });
+      
+          document.querySelectorAll('.reply-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+              const user = btn.getAttribute('data-user');
+              commentInput.value = `@${user} `;
+              commentInput.focus();
+            });
+          });
+        }
+      
+        document.getElementById('sendBtn').addEventListener('click', () => {
+          if (commentInput.value.trim() === '') return;
+          alert("Pehle aapko service book karni padegi yahan se.");
+          commentInput.value = '';
+        });
+      
+        document.querySelectorAll('.emoji').forEach(e => {
+          e.addEventListener('click', () => {
+            commentInput.value += e.textContent;
+            commentInput.focus();
+          });
+        });
+      
+        renderComments();
+      </script>
+      <div class="photo-section">
+        <h1>👇 Proof 👇</h1>
+        <img src="Photo 1.jpg" alt="Photo 1" class="photo">
+        <img src="Photo 2.jpg" alt="Photo 2" class="photo">
+        <img src="Photo 3.jpg" alt="Photo 3" class="photo">
+        <img src="Photo 4.jpg" alt="Photo 4" class="photo">
+        <img src="Photo 5.jpg" alt="Photo 5" class="photo">
+    </div>
+
+    <footer>
+        <img src="google_pay_footer.webp" alt="Footer Image">
+    </footer>
+
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+</body>
+</html>
